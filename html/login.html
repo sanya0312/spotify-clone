@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify - Login</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+        color: white;
+      }
+      body {
+        display: flex;
+        align-items: center;
+        background: #222222;
+        justify-content: center;
+        height: 100vh;
+        width: 100vw;
+      }
+      main {
+        min-width: 40%;
+        width: 40%;
+        height: 90%;
+        background: #121212;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      main h1 {
+        text-align: center;
+        color: white;
+        margin: 3rem 0 0 0;
+        font-size: 3rem;
+      }
+      #divider {
+        margin: 30px 0;
+        height: 0.8px;
+        width: 80%;
+        background: rgba(128, 128, 128, 0.799);
+      }
+      #form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: white;
+      }
+      #form div {
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        flex-direction: column;
+        margin-bottom: 16px;
+      }
+      #form div span {
+        margin-bottom: 5px;
+      }
+      input {
+        border-radius: 3px;
+        padding: 10px;
+        width: 300px;
+        background: transparent;
+        outline: none;
+        border: 2px solid gray;
+        color: white;
+      }
+      button {
+        cursor: pointer;
+        width: 100%;
+        background: #1fdf64;
+        border: none;
+        outline: none;
+        padding: 13px;
+        color: black;
+        font-size: 1.2rem;
+        border-radius: 4rem;
+        transition: 0.2s;
+        margin-top: 16px;
+      }
+      button:hover {
+        transform: scale(1.03);
+      }
+      #checkbox {
+        width: 100%;
+        display: flex;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: start !important;
+      }
+      #checkbox input {
+        width: 20px;
+      }
+      #error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Log in to Spotify</h1>
+      <div id="divider"></div>
+      <div id="form">
+        <div>
+          <span>Email</span>
+          <input type="email" placeholder="Email" id="email" />
+        </div>
+        <div>
+          <span>Passowrd</span>
+          <input type="text" placeholder="Password" id="password" />
+        </div>
+        <div id="error"></div>
+        <div id="checkbox"><input type="checkbox" /> Remember me</div>
+        <button id="submitButton">Log In</button>
+      </div>
+      <div style="margin-top: 10px">forget password?</div>
+      <div id="divider"></div>
+      <a href="/html/signup.html"> don't have an account? </a>
+    </main>
+    <script>
+      if (localStorage.getItem("userIsLoggedIn")) {
+        window.location.href = "./index.html";
+      }
+      const email = document.getElementById("email");
+      const password = document.getElementById("password");
+      const error = document.querySelector("#error");
+      document.getElementById("submitButton").addEventListener("click", () => {
+        if (!email.value || !password.value) {
+          error.textContent = "Email and password can't be empty";
+        } else {
+          const allEmails = JSON.parse(
+            localStorage.getItem("allEmails") || "[]"
+          );
+          const userData = allEmails.find((item) => item.email === email.value);
+          if (userData) {
+            if (
+              userData.email === email.value &&
+              userData.password === password.value
+            ) {
+              localStorage.setItem("userIsLoggedIn", "true");
+              localStorage.setItem(
+                "currentUserEmail",
+                JSON.stringify(email.value)
+              );
+              window.location.href = "./index.html";
+            } else {
+              error.textContent = "Invalid Password";
+            }
+          } else {
+            error.textContent = "Can't find your account.";
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

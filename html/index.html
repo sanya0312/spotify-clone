@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="../styles/right.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Spotify clone</title>
+  </head>
+  <body>
+    <div id="frame1">
+      <div id="left">
+        <nav>
+          <a href="/html/index.html" id="main-page-heading">
+            <i class="fa-brands fa-spotify"></i>
+            Spotify
+          </a>
+          <div id="home"><i class="fa-solid fa-house"></i>Home</div>
+          <div id="search">
+            <i class="fa-solid fa-magnifying-glass"></i>Search
+          </div>
+        </nav>
+        <div id="library">
+          <div id="library-nav">
+            <div><i class="fa-solid fa-book"></i> Your Library</div>
+            <i class="fa-solid fa-plus"></i>
+          </div>
+          <div id="filter-chips">
+            <div onclick="sortPlaylist('all')">All</div>
+            <div onclick="sortPlaylist('playlists')">Playlists</div>
+            <div onclick="sortPlaylist('artists')">Artists</div>
+          </div>
+          <div id="search-bar">
+            <div class="search-bar-inner-off" id="search-inner-bar">
+              <i class="fa-solid fa-magnifying-glass" id="search-icon"></i>
+              <input
+                type="text"
+                name="playlist"
+                onkeyup="searchPlaylist()"
+                id="playlistId"
+                placeholder="Search in your library"
+              />
+            </div>
+          </div>
+          <div id="create-playlist">
+            <p>Create your first playlist</p>
+            <p>It's easy, we'll help you</p>
+            <span>
+              <a href="./login.html">Create playlist</a>
+            </span>
+          </div>
+          <div id="playlists"></div>
+        </div>
+      </div>
+      <div id="right-search">
+        <nav>
+          <div>
+            <i class="fa-solid fa-chevron-left"></i>
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+          <div id="nav-icons"></div>
+        </nav>
+        <h1>Browse all</h1>
+        <div id="right-search-inner">
+        </div>
+      </div>
+      <div id="right-home">
+        <div class="HsbczDqu9qjcYr7EIdHR"></div>
+        <nav id="color-heading">
+          <div class="bgImg"></div>
+          <div>
+            <i class="fa-solid fa-chevron-left"></i>
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+          <div id="nav-icons"></div>
+        </nav>
+        <div id="top-playlists">
+          <h1 id="top-playlist-time">Good afternoon</h1>
+          <div id="top-playlists-items">
+            <div class="top-playlists-item">
+              <img
+                src="https://i.scdn.co/image/ab6761610000e5ebaf94287a28816f8bfb8776e1"
+                alt="not found"
+              />
+              <div class="top-playlists-items-text">
+                <span>Karan Aujla</span>
+              </div>
+              <div class="playButton"><i class="fa-solid fa-play"></i></div>
+            </div>
+            <div class="top-playlists-item">
+              <img
+                src="https://cdns-images.dzcdn.net/images/cover/9c01da08f1771e1bc7881c18c6fcf2cf/264x264.jpg"
+                alt="not found"
+              />
+              <div>
+                <span>Zaeden</span>
+              </div>
+              <div class="playButton"><i class="fa-solid fa-play"></i></div>
+            </div>
+            <div class="top-playlists-item">
+              <img
+                src="https://i.scdn.co/image/ab67616d0000b2731905d0bdf1ffcbba0c696c5d"
+                alt="not found"
+              />
+              <div>
+                <span>Back To You</span>
+              </div>
+              <div class="playButton"><i class="fa-solid fa-play"></i></div>
+            </div>
+            <div class="top-playlists-item">
+              <img
+                src="https://i.scdn.co/image/ab67616d0000b27354e544672baa16145d67612b"
+                alt="not found"
+              />
+              <div>
+                <span>Rockstar</span>
+              </div>
+              <div class="playButton"><i class="fa-solid fa-play"></i></div>
+            </div>
+            <div class="top-playlists-item">
+              <img
+                src="https://i.scdn.co/image/ab67616d00001e02114a43e6287d07de69e950cd"
+                alt="not found"
+              />
+              <div>
+                <span>Let Her Go</span>
+              </div>
+              <div class="playButton"><i class="fa-solid fa-play"></i></div>
+            </div>
+            <div class="top-playlists-item">
+              <img
+                src="https://i.scdn.co/image/ab67616d0000b273e23347d1b3a9da365c1addfc"
+                alt="not found"
+              />
+              <div>
+                <span>All Out 90's Hindi</span>
+              </div>
+              <div class="playButton"><i class="fa-solid fa-play"></i></div>
+            </div>
+          </div>
+        </div>
+        <div id="made-for-user">
+          <div id="made-for-user-heading">
+            <h1>Made For User</h1>
+            <div>Show all</div>
+          </div>
+          <div id="made-for-user-items">
+            <div class="made-for-user-item">
+              <img
+                src="https://dailymix-images.scdn.co/v2/img/ab6761610000e5eb611e60f2b061c920476b2df3/1/en/default"
+                alt="not found"
+              />
+              <div class="madforUserButton">
+                <i class="fa-solid fa-play"></i>
+              </div>
+              <div>
+                <span>Daily Mix 1</span>
+                <p>Baekhyn,The Weeknd, Seventen,Chainsmokers</p>
+              </div>
+            </div>
+            <div class="made-for-user-item">
+              <img
+                src="https://dailymix-images.scdn.co/v2/img/ab6761610000e5eb61916bb9f5c6a1a9ba1c9ab6/2/en/default"
+                alt="not found"
+              />
+              <div class="madforUserButton">
+                <i class="fa-solid fa-play"></i>
+              </div>
+              <div>
+                <span>Daily Mix 2</span>
+                <p>
+                  Jess and Gabriel, <br />
+                  Tory Lanez and more
+                </p>
+              </div>
+            </div>
+            <div class="made-for-user-item">
+              <img
+                src="https://i.pinimg.com/474x/f3/77/87/f37787dab83272540b31a8b566455e7e.jpg"
+                alt="not found"
+              />
+              <div class="madforUserButton">
+                <i class="fa-solid fa-play"></i>
+              </div>
+              <div>
+                <span>Daily Mix 3</span>
+                <p>
+                  Ariana Grande,Selena,<br />
+                  Megan Thee Stallion
+                </p>
+              </div>
+            </div>
+            <div class="made-for-user-item">
+              <img
+                src="https://dailymix-images.scdn.co/v2/img/ab6761610000e5ebcb6926f44f620555ba444fca/4/en/default"
+                alt="not found"
+              />
+              <div class="madforUserButton">
+                <i class="fa-solid fa-play"></i>
+              </div>
+              <div>
+                <span>Daily Mix 4</span>
+                <p>
+                  Pritam,Arjit Singh, Karan <br />
+                  Aujla, Diljit Dosanjh...
+                </p>
+              </div>
+            </div>
+            <div class="made-for-user-item">
+              <img
+                src="https://dailymix-images.scdn.co/v2/img/ab6761610000e5eb68f6e5892075d7f22615bd17/5/en/default"
+                alt="not found"
+              />
+              <div class="madforUserButton">
+                <i class="fa-solid fa-play"></i>
+              </div>
+              <div>
+                <span>Daily Mix 5</span>
+                <p>
+                  Adele,Bruno Mars,Harry <br />
+                  Styles,Giveon and more
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="made-for-user">
+          <h1 id="changable-heading">Your Top Mixes</h1>
+          <div id="made-for-user-items">
+            <div class="made-for-user-item">
+              <img
+                src="https://seed-mix-image.spotifycdn.com/v6/img/hindi/2GoeZ0qOTt6kjsWW4eA6LS/en/default"
+                alt="not found"
+              />
+              <div class="madforUserButton">
+                <i class="fa-solid fa-play"></i>
+              </div>
+              <div>
+                <span>Hindi Mix</span>
+                <p>Darshan Raval, Zaedan ,Rovalio and more</p>
+              </div>
+            </div>
+            <div class="made-for-user-item">
+              <img
+                src="https://seed-mix-image.spotifycdn.com/v6/img/dance_electronic/738wLrAtLtCtFOLvQBXOXp/en/default"
+                alt="not found"
+              />
+              <div class="madforUserButton">
+                <i class="fa-solid fa-play"></i>
+              </div>
+              <div>
+                <span>Dance/Electronic Mix</span>
+                <p>
+                  Martin Garrix, Avicii <br />
+                  ,DJ Snake Alan Walker
+                </p>
+              </div>
+            </div>
+            <div class="made-for-user-item">
+              <img
+                src="https://seed-mix-image.spotifycdn.com/v6/img/artist/3EN8pUGJtYWutzf2fUxrDH/en/default"
+                alt="not found"
+              />
+              <div class="madforUserButton">
+                <i class="fa-solid fa-play"></i>
+              </div>
+              <div>
+                <span>Moody Good Mix</span>
+                <p>
+                  Johnny Orlando, Charlie <br />
+                  Puth,Troye Sivan and...
+                </p>
+              </div>
+            </div>
+            <div class="made-for-user-item">
+              <img
+                src="https://seed-mix-image.spotifycdn.com/v6/img/twenty_tens/69GGBxA162lTqCwzJG5jLp/en/default"
+                alt="not found"
+              />
+              <div class="madforUserButton">
+                <i class="fa-solid fa-play"></i>
+              </div>
+              <div>
+                <span>2010's Mix</span>
+                <p>
+                  One Direction, John <br />
+                  Legend,Post Malone
+                </p>
+              </div>
+            </div>
+            <div class="made-for-user-item">
+              <img
+                src="https://seed-mix-image.spotifycdn.com/v6/img/pop/540vIaP2JwjQb9dm3aArA4/en/default"
+                alt="not found"
+              />
+              <div class="madforUserButton">
+                <i class="fa-solid fa-play"></i>
+              </div>
+              <div>
+                <span>Pop Mix</span>
+                <p>
+                  Justin Bieber, Conan <br />
+                  Gray, Shawn Mendes...
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="made-for-user">
+          <h1>Recently Played</h1>
+          <div id="made-for-user-items">
+            <div class="made-for-user-item">
+              <img
+                src="https://i.scdn.co/image/ab67616d0000b2736597f07e711333210fa77b1c"
+                alt="not found"
+              />
+              <div class="madforUserButton">
+                <i class="fa-solid fa-play"></i>
+              </div>
+              <div>
+                <span>Hindi Soul Mix</span>
+                <p>
+                  Anuv Jain, Mitraz <br />
+                  Pritam, Darshan Raval
+                </p>
+              </div>
+            </div>
+            <div class="made-for-user-item artist">
+              <img
+                src="https://i.scdn.co/image/ab67616d0000b2737c7accea215e046424a2e423"
+                alt="not found"
+              />
+              <div class="madforUserButton">
+                <i class="fa-solid fa-play"></i>
+              </div>
+              <div>
+                <span>Sabrina Carpenter</span>
+                <p>
+                  Artist <br />
+                  &nbsp;
+                </p>
+              </div>
+            </div>
+            <div class="made-for-user-item">
+              <img
+                src="https://i.scdn.co/image/ab67616d0000b273ea3ef7697cfd5705b8f47521"
+                alt="not found"
+              />
+              <div class="madforUserButton">
+                <i class="fa-solid fa-play"></i>
+              </div>
+              <div>
+                <span>On Repeat</span>
+                <p>
+                  Shawn Mendes, Selena <br />
+                  Gomez and more...
+                </p>
+              </div>
+            </div>
+            <div class="made-for-user-item">
+              <img
+                src="https://i1.sndcdn.com/artworks-y6qitUuZoS6y8LQo-5s2pPA-t500x500.jpg"
+                alt="not found"
+              />
+              <div class="madforUserButton">
+                <i class="fa-solid fa-play"></i>
+              </div>
+              <div>
+                <span>Liked Songs</span>
+                <p>
+                  86 songs <br />
+                  &nbsp;
+                </p>
+              </div>
+            </div>
+            <div class="made-for-user-item artist">
+              <img
+                src="https://cdns-images.dzcdn.net/images/cover/9c01da08f1771e1bc7881c18c6fcf2cf/264x264.jpg"
+                alt="not found"
+              />
+              <div class="madforUserButton">
+                <i class="fa-solid fa-play"></i>
+              </div>
+              <div>
+                <span>Zadean</span>
+                <p>
+                  Artist <br />
+                  &nbsp;
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer>
+          <div id="footer-upper">
+            <ul id="companies">
+              <li class="footer-headings">Companies</li>
+              <li>About</li>
+              <li>Jobs</li>
+              <li>For the Record</li>
+            </ul>
+            <ul id="communities">
+              <li class="footer-headings">Communities</li>
+              <li>For Artists</li>
+              <li>Developers</li>
+              <li>Advertising</li>
+              <li>Investors</li>
+              <li>Vendors</li>
+            </ul>
+            <ul id="useful-links">
+              <li class="footer-headings">Useful links</li>
+              <li>Support</li>
+              <li>Free Mobile App</li>
+            </ul>
+            <div id="link-icons">
+              <i class="fa-brands fa-instagram"></i>
+              <i class="fa-brands fa-twitter"></i>
+              <i class="fa-brands fa-facebook"></i>
+            </div>
+          </div>
+          <div id="footer-lower">
+            <div id="footer-lower-line"></div>
+            <p>© 2024 Spotify AB</p>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <a href="./signup.html" id="signUp-for-free">
+      <div>
+        <h5>Preview of Spotify</h5>
+        <p>
+          Sign up to get unlimited songs and podcasts with occasional ads. No
+          credit card needed.
+        </p>
+      </div>
+      <div>Sign up free</div>
+    </a>
+    <div class="expanded" id="yourFullscreenElement">
+      
+    </div>
+    <div id="song-div">
+      <div class="song-div-title">
+        <img
+          src="https://i.scdn.co/image/ab67616d000048519416ed64daf84936d89e671c"
+          alt="not found"
+          id="song-cover"
+        />
+        <div>
+          <span id="song-name">One Dance</span>
+          <span id="song-info">Drake, Wizkid, Kyla</span>
+        </div>
+        <i class="fa-regular fa-heart"></i>
+      </div>
+      <div id="music-prgress">
+        <div id="music-controls">
+          <i class="fa-solid fa-shuffle"></i>
+          <i class="fa-solid fa-backward-step disabled" id="prev-song"></i>
+          <div class="song-playButton" style="cursor: pointer">
+            <i class="fa-solid fa-play"></i>
+          </div>
+          <i class="fa-solid fa-forward-step" id="next-song"></i>
+          <i class="fa-solid fa-repeat"></i>
+        </div>
+        <div id="progress-bar-outer">
+          <div id="duration-start">0:00</div>
+          <progress
+            id="seekbar"
+            value="0"
+            max="100"
+            style="width: 500px"
+          ></progress>
+          <div id="duration-end">2:53</div>
+        </div>
+      </div>
+      <div id="music-options">
+        <div id="now-playing-view"><i class="fa-solid fa-play"></i></div>
+        <i class="fa-solid fa-music"></i>
+        <i class="fa-solid fa-bars-staggered"></i>
+        <i class="fa-solid fa-computer"></i>
+        <i class="fa-solid fa-volume-high" id="volume"></i>
+        <progress
+          id="volume-seekbar"
+          max="1" value="1"
+          style="width: 100px; height: 7px"
+        ></progress>
+        <i class="fa-solid fa-up-right-and-down-left-from-center" id="expand"></i>
+      </div>
+    </div>
+    <script src="/javascript/song.js"></script>
+    <script src="/javascript/script.js"></script>
+    <script src="/javascript/time.js"></script>
+    <script src="/javascript/libraryData.js"></script>
+    <script src="/javascript/search.js"></script>
+  </body>
+</html>
